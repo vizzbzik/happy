@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С Днем Рождения, Лера!</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f9c5d1, #fcd5ce, #ffefba);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 40px;
+    text-align: center;
+    animation: pop 1s ease;
+  }
+  h1 {
+    font-size: 3em;
+    color: #ff6b81;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 1.5em;
+    color: #333;
+  }
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff6b81;
+    animation: fall 3s linear infinite;
+  }
+  @keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+  }
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>С Днем Рождения, Лера!</h1>
+  <p>Поздравляю с твоим 16-летием. Желаю счастья, улыбок и волшебных моментов каждый день!</p>
+</div>
+
+<script>
+  // Создание конфетти
+  for(let i=0; i<50; i++){
+    let confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random()*100 + 'vw';
+    confetti.style.background = `hsl(${Math.random()*360}, 70%, 60%)`;
+    confetti.style.animationDuration = 2 + Math.random()*3 + 's';
+    confetti.style.width = confetti.style.height = 5 + Math.random()*10 + 'px';
+    document.body.appendChild(confetti);
+  }
+</script>
+</body>
+</html>
